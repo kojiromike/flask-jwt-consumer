@@ -39,7 +39,7 @@ jobs:
       run: python3 -m pip install --upgrade pipenv
 
     - name: Pipenv Install
-      run: python3 -m pipenv install --deploy
+      run: python3 -m pipenv install --deploy --dev
 
     - name: Run Tests
       run: pipenv run pytest
