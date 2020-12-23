@@ -35,8 +35,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pipenv-
 
+    - name: Install Pipenv
+      run: python3 -m pip install --upgrade pipenv
+
     - name: Pipenv Install
-      run: pipenv install --deploy
+      run: python3 -m pipenv install --deploy
 
     - name: Run Tests
       run: pipenv run pytest
