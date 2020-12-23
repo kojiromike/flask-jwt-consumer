@@ -13,12 +13,7 @@ jobs:
     strategy:
       matrix:
         python:
-        - 3.6
-        - 3.7
         - 3.8
-        - 3.9
-        - 'pypy-3.6'
-        - 'pypy-3.7'
 
     steps:
     - uses: actions/checkout@v2
@@ -36,10 +31,10 @@ jobs:
           ${{ runner.os }}-pipenv-
 
     - name: Install Pipenv
-      run: python3 -m pip install --upgrade pipenv
+      run: pip install --upgrade pipenv
 
     - name: Pipenv Install
-      run: python3 -m pipenv install --deploy --dev
+      run: pipenv install --deploy --dev
 
     - name: Run Tests
-      run: pipenv run pytest
+      run: pipenv run test
